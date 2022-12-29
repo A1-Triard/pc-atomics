@@ -4,6 +4,8 @@
 
 #[cfg(pc_atomics)]
 mod atomics {
+    use core::ffi::c_int;
+
     #[no_mangle]
     unsafe extern "C" fn __atomic_load(src: *const usize, _model: c_int) -> usize {
         asm!("cli");
