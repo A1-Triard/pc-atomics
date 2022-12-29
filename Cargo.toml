@@ -1,8 +1,16 @@
 [package]
-name = "pc-atomics"
-version = "0.1.0"
 edition = "2021"
+name = "pc-atomics"
+version = "0.0.1"
+rust-version = "1.66"
+authors = ["warlock <internalmike@gmail.com>"]
+description = "Atomics for DOS target."
+readme = "README.md"
+documentation = "https://docs.rs/pc-atomics/"
+keywords = ["pc", "atomics", "no_std", "dos", "interrupts"]
+categories = ["os", "no-std"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/A1-Triard/pc-atomics"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
+[badges]
+maintenance = { status = "experimental" }
