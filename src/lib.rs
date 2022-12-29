@@ -2,7 +2,7 @@
 
 #![no_std]
 
-#[cfg(single-core-atomics)]
+#[cfg(pc-atomics)]
 mod atomics {
     #[no_mangle]
     unsafe extern "C" fn __atomic_load(src: *const usize, _model: c_int) -> usize {
