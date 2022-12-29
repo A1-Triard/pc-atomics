@@ -4,6 +4,7 @@
 
 #[cfg(pc_atomics)]
 mod atomics {
+    use core::arch::asm;
     use core::ffi::c_int;
 
     #[no_mangle]
