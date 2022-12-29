@@ -43,6 +43,8 @@ jobs:
         - os: macOS-latest
           tool: x86_64-apple-darwin
     runs-on: ${{ matrix.os }}
+    env:
+    - RUSTFLAGS: "--cfg pc_atomics"
     steps:
     - uses: actions-rs/toolchain@v1
       with:
@@ -51,7 +53,7 @@ jobs:
     - run: "rustup component add clippy"
     - run: "rustup component add rust-src --toolchain nightly-${{ matrix.tool }}"
     - uses: actions/checkout@v2
-    - run: "RUSTFLAGS=\"--cfg pc_atomics\" cargo +nightly build --verbose --target=i386-pc-dos-msvc.json -Z build-std=core,panic_abort"
-    - run: "RUSTFLAGS=\"--cfg pc_atomics\" cargo +nightly doc --verbose --target=i386-pc-dos-msvc.json -Z build-std=core,panic_abort"
-    - run: "RUSTFLAGS=\"--cfg pc_atomics\" cargo +nightly build --verbose --release --target=i386-pc-dos-msvc.json -Z build-std=core,panic_abort"
-    - run: "RUSTFLAGS=\"--cfg pc_atomics\" cargo +nightly clippy --verbose --target=i386-pc-dos-msvc.json -Z build-std=core,panic_abort"
+    - run: "cargo +nightly build --verbose --target=i386-pc-dos-msvc.json -Z build-std=core,panic_abort"
+    - run: "cargo +nightly doc --verbose --target=i386-pc-dos-msvc.json -Z build-std=core,panic_abort"
+    - run: "cargo +nightly build --verbose --release --target=i386-pc-dos-msvc.json -Z build-std=core,panic_abort"
+    - run: "cargo +nightly clippy --verbose --target=i386-pc-dos-msvc.json -Z build-std=core,panic_abort"
