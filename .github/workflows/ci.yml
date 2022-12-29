@@ -44,7 +44,7 @@ jobs:
           tool: x86_64-apple-darwin
     runs-on: ${{ matrix.os }}
     env:
-    - RUSTFLAGS: "--cfg pc_atomics"
+      RUSTFLAGS: "--cfg pc_atomics"
     steps:
     - uses: actions-rs/toolchain@v1
       with:
